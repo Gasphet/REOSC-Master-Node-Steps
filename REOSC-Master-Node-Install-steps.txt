@@ -1,5 +1,5 @@
 Everything with $ before is a line to copy and paste into terminal.
-Everything with# is instruction.
+Everything with # is instruction.
 
 # is a comment.
 *** is special comment
