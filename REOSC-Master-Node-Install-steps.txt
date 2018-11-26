@@ -71,7 +71,7 @@ After=network.target
 Type=simple
 Restart=always
 RestartSec=30s
-ExecStart=/usr/bin/reosc-node --chain=reosc --jsonrpc-interface <Your External IP address> --port "30303" 
+ExecStart=/usr/bin/reosc-node --chain=reosc --jsonrpc-interface <Your External IP address> 
 
 [Install]
 WantedBy=default.target
@@ -112,23 +112,42 @@ https://github.com/REOSC/mn/wiki/3.-REOSC-MasterNode-(MN)-Setup
 
 
 
-$ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <External ip Address>:8545
+$ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <ip Address>:8545
 
 get result that looks like this 
 
- Public node URL: enode://49d11acf7c9fc0ad2edd1e984cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx55ecc406583db61312f4165d717a3fcabf46a43ee75fe1f1ecc52@Xxx.xxX.Xxx.Xxx:30303
+ Public node URL: enode://49d11acf7cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@<Your-IP-Showing>:30303
 
-#Copy the first 10 caractures and put 0x in front on the extar data section within MEW as you make the transaction of 250k or 1.5 mil coins to new wallet.
+#Copy the first 10 caricatures and put 0x in front on the extra data section within MEW as you make the transaction of 250k or 1.5 mil coins to new wallet.
+
+
 
 # ex 0x49d11acf7c
 
 
-# make a copy of your Node and send it allong with other info required to register node to @Le_Gift on https://t.me/reosc_rus channel.
+copy the transaction # and fill in all 5 steps below. 
+
+----------------------------------------------------------------
+
+CheckList: (as Example)
+
+1-External IP address: <Your-External-IP-Here>
+Open RPC port: 8545
+
+2-MN enode:// 49d11acf7cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+3-Tx number: 0x9d0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx6b98a953122c8e
+
+4-Wallet address: <Wallet You Sent the MN Funds To>
+
+----------------------------------------------------------------
+
+
+#Now you need to register your hot & fresh MN on service.
+
+#Unfortunately, self-registration is not yet available but @Le_Gift on ( https://t.me/reosc_rus ) will do it for you if you send him these 4 items on telegram.
+
 
 
 All Done :)
-
-
-
---------------------------------------------------------------------------------
 
