@@ -119,9 +119,8 @@ get result that looks like this
 
 
 # ex 0x49d11acf7c
-
-
-copy the transaction # and fill in all 5 steps below. 
+#Refer to apply the extra data.jpg for example of sending
+#after you send then make sure to copy the transaction # and fill in all 5 steps below. 
 
 ----------------------------------------------------------------
 
