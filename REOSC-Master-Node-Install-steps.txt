@@ -110,9 +110,9 @@ $ sudo systemctl stop reosc.service
 
 https://github.com/REOSC/mn/wiki/3.-REOSC-MasterNode-(MN)-Setup
 
+# Enter Command Below Removing <public ip address> Including Brackets And Enter Your Public Ip Address 
 
-
-$ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <ip Address>:8545
+$ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <public ip Address>:8545
 
 get result that looks like this 
 
