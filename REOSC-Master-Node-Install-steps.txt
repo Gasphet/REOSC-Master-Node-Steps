@@ -1,0 +1,134 @@
+Everything with $ before is a line to copy and paste into terminal.
+Everything with# is instruction.
+
+# is a comment.
+*** is special comment
+
+*****As root user
+
+$ adduser reosc
+
+$ usermod -aG sudo reosc
+
+$ su reosc
+
+***As reosc user 
+
+$ cd ~/
+
+
+$ sudo apt-get update
+
+$ sudo apt install fail2ban ufw -y
+
+$ sudo systemctl enable fail2ban && sudo systemctl start fail2ban
+
+$ sudo ufw allow ssh/tcp
+
+$ sudo ufw limit ssh/tcp
+
+$ sudo ufw allow 30305/tcp
+
+$ sudo ufw allow 30305/udp
+
+$ sudo ufw allow 8545/tcp
+
+$ sudo ufw logging on
+
+$ sudo ufw enable
+
+$ sudo ufw status
+
+-----------------------------------------------------------------------
+
+
+$ sudo apt-get update
+
+$ sudo apt-get install mc htop
+
+$ wget https://github.com/REOSC/mn/releases/download/2.1.4/reosc-node
+
+$ chmod +x reosc-node
+
+$ sudo cp reosc-node /usr/bin/reosc-node
+
+
+_____________________________________________________________________________
+
+$ sudo apt-get update
+
+$ sudo apt-get install nano
+
+$ sudo nano /etc/systemd/system/reosc.service
+
+# Copy and paste adding your own ip address Inside the section below:
+
+[Unit]
+Description=REOSC Node -- MasterNode service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30s
+ExecStart=/usr/bin/reosc-node --chain=reosc --jsonrpc-interface <Your External IP address> --port "30303" 
+
+[Install]
+WantedBy=default.target
+
+
+# combine Controle and x / save and exit
+<controle key + x> save and exit
+_________________________________________________________________________________
+
+
+#Start service
+
+$ sudo systemctl start reosc.service
+
+
+
+# Enable Node service at boot of computer
+
+$ sudo systemctl enable reosc.service 
+
+
+
+# Show first 50 lines of status of Node service this will tell you active or failed
+
+$ sudo systemctl status -n50 reosc.service 
+
+
+# ***Only If you need to Stop Node service*** 
+
+$ sudo systemctl stop reosc.service
+
+
+
+# Continue with steps to register Master-Node from website: 
+
+
+https://github.com/REOSC/mn/wiki/3.-REOSC-MasterNode-(MN)-Setup
+
+
+
+$ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <External ip Address>:8545
+
+get result that looks like this 
+
+ Public node URL: enode://49d11acf7c9fc0ad2edd1e984cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx55ecc406583db61312f4165d717a3fcabf46a43ee75fe1f1ecc52@Xxx.xxX.Xxx.Xxx:30303
+
+#Copy the first 10 caractures and put 0x in front on the extar data section within MEW as you make the transaction of 250k or 1.5 mil coins to new wallet.
+
+# ex 0x49d11acf7c
+
+
+# make a copy of your Node and send it allong with other info required to register node to @Le_Gift on https://t.me/reosc_rus channel.
+
+
+All Done :)
+
+
+
+--------------------------------------------------------------------------------
+
