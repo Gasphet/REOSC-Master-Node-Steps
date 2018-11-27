@@ -25,9 +25,9 @@ $ sudo ufw allow ssh/tcp
 
 $ sudo ufw limit ssh/tcp
 
-$ sudo ufw allow 30305/tcp
+$ sudo ufw allow 30303/tcp
 
-$ sudo ufw allow 30305/udp
+$ sudo ufw allow 30303/udp
 
 $ sudo ufw allow 8545/tcp
 
