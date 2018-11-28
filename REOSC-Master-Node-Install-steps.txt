@@ -5,7 +5,7 @@ Just copy Line By Line editing anything with brackets <---> removing the bracket
 ****Remember VPS providers have additional firewalls that must have ports opened in addition to the UFW permissions to be edited on their web interface where you view your contracts.****
 
 Everything with $ before is a line to copy and paste into terminal.
-Everything with ## is instruction or naration.
+Everything with ## is instruction or narration.
 
 *** Indicates Special comment
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -51,7 +51,7 @@ $ sudo ufw enable
 
 $ sudo ufw status
 
-# You will see the list of aloud ports listed that also ***MUST*** be opened at your VPS Providers firewall as well.
+## You will see the list of aloud ports listed that also ***MUST*** be opened at your VPS Providers firewall as well.
 
 -----------------------------------------------------------------------
 
@@ -78,7 +78,7 @@ $ sudo apt-get install nano
 
 $ sudo nano /etc/systemd/system/reosc.service
 
-# Copy and paste the text between the --- lines ***** adding your <Your External IP address> Inside the section below:
+## Copy and paste the text between the --- lines ***** adding your <Your External IP address> Inside the section below:
 *** Be sure to remove the < 2 brackets as well >
 ------------------------------------------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ Open RPC port: 8545
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-#Now you need to register your hot & fresh MasterNode with REOSC service.
+## Now you need to register your hot & fresh MasterNode with REOSC service.
 
 ## Unfortunately, self-registration is not yet available but contact @Le_Gift in Telegram channel ( https://t.me/reosc_rus ) Then in a Private Chat He will add Masternode to payment service for you if you send him the required items from Checklist example above.
 
