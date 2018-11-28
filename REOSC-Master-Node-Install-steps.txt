@@ -1,19 +1,33 @@
-Everything with $ before is a line to copy and paste into terminal.
-Everything with # is instruction.
-*** is special comment
+REOSC-Masternode Install made easy.
 
-*****As root user
+Just copy Line By Line editing anything with brackets <---> removing the brackets replacing with your required information
+
+****Remember VPS providers have additional firewalls that must have ports opened in addition to the UFW permissions to be edited on their web interface where you view your contracts.****
+
+Everything with $ before is a line to copy and paste into terminal.
+Everything with ## is instruction or naration.
+
+*** Indicates Special comment
+--------------------------------------------------------------------------------------------------------------------------------------
+*****As the root user
+
+## Create User For the Node, **DO NOT RUN NODE AS ROOT**
 
 $ adduser reosc
 
+## Give sudo Permissions to reosc
+
 $ usermod -aG sudo reosc
+
+## Switch to user reosc
 
 $ su reosc
 
-***As reosc user 
+## Navigate to the reosc Home folder by:
 
 $ cd ~/
 
+## Now installing firewall and opening the rquired ports:
 
 $ sudo apt-get update
 
@@ -37,8 +51,11 @@ $ sudo ufw enable
 
 $ sudo ufw status
 
+# You will see the list of aloud ports listed that also ***MUST*** be opened at your VPS Providers firewall as well.
+
 -----------------------------------------------------------------------
 
+## Downloading and Placing Required Node.
 
 $ sudo apt-get update
 
@@ -51,13 +68,19 @@ $ sudo cp reosc-node /usr/bin/reosc-node
 
 _____________________________________________________________________________
 
+## Installing Nano for editing
+
 $ sudo apt-get update
 
 $ sudo apt-get install nano
 
+## Create the required file to run the node:
+
 $ sudo nano /etc/systemd/system/reosc.service
 
-# Copy and paste adding your own ip address Inside the section below:
+# Copy and paste the text between the --- lines ***** adding your <Your External IP address> Inside the section below:
+*** Be sure to remove the < 2 brackets as well >
+------------------------------------------------------------------------------------------------------
 
 [Unit]
 Description=REOSC Node -- MasterNode service
@@ -72,57 +95,51 @@ ExecStart=/usr/bin/reosc-node --chain=reosc --jsonrpc-interface <Your External I
 [Install]
 WantedBy=default.target
 
-
-# combine Controle and x / save and exit
-<controle key + x> save and exit
+------------------------------------------------------------------------------------------------------
+## To save and exit combine Controle key and x then follow instructions to save and exit
+## controle key + x> save and exit
 _________________________________________________________________________________
 
 
-#Start service
+## Start service
 
 $ sudo systemctl start reosc.service
 
 
 
-# Enable Node service at boot of computer
+## Enable Node service at reboot of VPS
 
 $ sudo systemctl enable reosc.service 
 
 
 
-# Show first 50 lines of status of Node service this will tell you active or failed
+## Show first 50 lines of status of Node service this will tell you active or failed
 
 $ sudo systemctl status -n50 reosc.service 
 
 
-# ***Only If you need to Stop Node service*** 
+## ***Only If you need to Stop Node service*** 
 
 $ sudo systemctl stop reosc.service
 
+_________________________________________________________________________________________________________
 
-
-# Continue with steps to register Master-Node from website: 
-
-
-https://github.com/REOSC/mn/wiki/3.-REOSC-MasterNode-(MN)-Setup
-
-# Enter Command Below Removing <public ip address> Including Brackets And Enter Your Public Ip Address 
+## Enter Command Below Removing brackets and adding <Your Public ip Address> 
 
 $ curl --data '{"method":"parity_enode","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST <public ip Address>:8545
 
-get result that looks like this 
+## You will get result that looks somthing like this 
 
  Public node URL: enode://49d11acf7cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@<Your-IP-Showing>:30303
 
-#Copy the first 10 caricatures and put 0x in front on the extra data section within MEW as you make the transaction of 250k or 1.5 mil coins to new wallet.
+## Copy the first 10 characters and first add $ 0x in front on the extra data section within MEW as you make the transaction of 250k or 1.5 mil coins to a new MEW REOSC wallet.
 
 
+## ex 0x49d11acf7c
+## Refer to apply the extra data.jpg for example of sending
+## after you send then make sure to copy the transaction # and fill in all 5 steps below. 
 
-# ex 0x49d11acf7c
-#Refer to apply the extra data.jpg for example of sending
-#after you send then make sure to copy the transaction # and fill in all 5 steps below. 
-
-----------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 CheckList: (as Example)
 
@@ -135,14 +152,15 @@ Open RPC port: 8545
 
 4-Wallet address: <Wallet You Sent the MN Funds To>
 
-----------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-#Now you need to register your hot & fresh MN on service.
+#Now you need to register your hot & fresh MasterNode with REOSC service.
 
-#Unfortunately, self-registration is not yet available but @Le_Gift on ( https://t.me/reosc_rus ) will do it for you if you send him these 4 items on telegram.
+## Unfortunately, self-registration is not yet available but contact @Le_Gift in Telegram channel ( https://t.me/reosc_rus ) Then in a Private Chat He will add Masternode to payment service for you if you send him the required items from Checklist example above.
 
 
 
-All Done :)
+************************************************ All Done :) *************************************************************************
+************************************** Sit Back And Collect Daily Rewards ************************************************************
 
